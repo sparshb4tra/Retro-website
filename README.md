@@ -6,11 +6,12 @@ Welcome to my retro-inspired portfolio website! Built with a nostalgic nod to cl
 Check it out in action [here](#)! 
 
 ## Screenshots 📸
-| **Desktop View** | **Snake Game Window** | **About Me Window** |
-|-------------------|-----------------------|---------------------|
-| ![Desktop View](#) (Replace `#` with your desktop screenshot URL) | ![Snake Game](#) (Replace `#` with your Snake game screenshot URL) | ![About Me](#) (Replace `#` with your About Me screenshot URL) |
+| **Desktop View**         | **Snake Game Window**   | **About Me Window**    |
+|--------------------------|-------------------------|------------------------|
+| ![Desktop View](https://github.com/user-attachments/assets/9ab9c9d9-5da8-441e-867d-3550c1258e05) | ![Snake Game](https://github.com/user-attachments/assets/ac4644fc-52e8-4bfb-a713-2a517d634fac) | ![About Me](https://github.com/user-attachments/assets/23ae413f-d0de-4def-a7f2-d8495a2ae720) |
 
 ## Features 🎉
+
 - **Retro Mac OS Aesthetic**: Drag windows, click icons, and relive the 90s computing glory!
 - **Interactive Desktop**: Click icons to open windows for About Me, Projects, Resume, Contact, and System Info.
 - **Built-in Snake Game**: Play a fully functional Snake game with a retry feature and auto-restart countdown. Use arrow keys to slither to victory! 🐍
