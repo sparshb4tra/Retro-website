@@ -1,0 +1,449 @@
+@font-face {
+    font-family: 'Chicago';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+    /* Note: For production, you'll need to host the actual Chicago font */
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: 'Chicago', 'Monaco', monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #666;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-window {
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header {
+    height: 20px;
+    background: repeating-linear-gradient(
+        to right,
+        black,
+        black 1px,
+        white 1px,
+        white 3px
+    );
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.main-title {
+    color: black;
+    background: white;
+    padding: 0 5px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.close-box {
+    width: 13px;
+    height: 13px;
+    border: 1px solid black;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+}
+
+.close-box:after {
+    content: "";
+    position: absolute;
+    width: 5px; /* Smaller square */
+    height: 5px; /* Smaller square */
+    background-color: black; /* Filled black */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none; /* Remove border from the pseudo-element */
+}
+
+.menubar {
+    height: 20px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.os-logo {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.os-logo img {
+    width: 16px;
+    height: 16px;
+}
+
+.os-logo:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.menu-item {
+    margin-right: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.desktop-area {
+    height: calc(100% - 20px - 20px);
+    background-color: #eee;
+    position: relative;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c0c0c0' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+    overflow: hidden;
+}
+
+.footer {
+    height: 20px;
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 10px;
+    justify-content: space-between;
+}
+
+.draggable {
+    position: absolute;
+    cursor: move;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.icon-img {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.document-icon {
+    display: none;
+}
+
+.icon-label {
+    font-size: 12px;
+    background-color: white;
+    padding: 1px 3px;
+    border: 1px solid transparent;
+}
+
+.icon.selected .icon-label {
+    border: 1px dotted black;
+}
+
+.folder-icon {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.folder-icon:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 5px;
+    background-color: white;
+    border: 1px solid black;
+    border-bottom: none;
+    top: -5px;
+    left: 5px;
+}
+
+.document-icon {
+    position: relative;
+    width: 30px;
+    height: 35px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.document-icon:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    top: 0;
+    right: 0;
+}
+
+.horizontal-lines {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    top: 15px;
+    left: 5px;
+}
+
+.horizontal-lines:before,
+.horizontal-lines:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: black;
+}
+
+.horizontal-lines:before {
+    top: 0;
+}
+
+.horizontal-lines:after {
+    top: 5px;
+}
+
+.app-window {
+    width: 400px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 10;
+}
+
+.window-header {
+    height: 20px;
+    background: repeating-linear-gradient(
+        to right,
+        black,
+        black 1px,
+        white 1px,
+        white 3px
+    );
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    cursor: move;
+}
+
+.window-title {
+    color: black;
+    background: white;
+    padding: 0 5px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.window-content {
+    padding: 15px;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.window-footer {
+    height: 15px;
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    font-size: 10px;
+}
+
+.system-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    text-align: center;
+    line-height: 1;
+    padding: 2px;
+}
+
+.trash-icon {
+    position: relative;
+    width: 36px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.trash-icon:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    background-color: white;
+    border: 1px solid black;
+    top: -3px;
+    left: 7px;
+}
+
+.trash-icon:after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: black;
+    top: 15px;
+    left: 10px;
+    box-shadow: 0 5px 0 black, 0 10px 0 black;
+}
+
+.disk-icon {
+    font-size: 8px;
+    text-align: center;
+    line-height: 1;
+}
+
+.scroll-bar {
+    width: 16px;
+    background-color: white;
+    border-left: 1px solid black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-arrow {
+    height: 16px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.scroll-arrow:last-child {
+    border-bottom: none;
+    border-top: 1px solid black;
+}
+
+.scroll-track {
+    flex-grow: 1;
+    position: relative;
+}
+
+.scroll-thumb {
+    width: 16px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 10px;
+    cursor: pointer;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 4px 10px;
+    font-family: 'Chicago', 'Monaco', monospace;
+    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: black;
+    color: white;
+}
+
+.active {
+    z-index: 20;
+}
+
+/* Snake game specific styles */
+#snake-window {
+    z-index: 100;
+}
+
+#snake-window .window-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board {
+    background-color: #ccffcc;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#gameStatus {
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+#gameStatus:contains("Game Over") {
+    color: black;
+    font-size: 14px;
+}
+
+#snake-window button {
+    min-width: 80px;
+    margin: 0 5px;
+    font-size: 12px;
+    padding: 3px 10px;
+}
+
+#snake-window button:active {
+    background-color: black;
+    color: white;
+}
+
+#snake-window .window-content {
+    min-height: 380px;
+}
+
+#retryButton {
+    background-color: #f0f0f0;
+    border: 2px solid black;
+}

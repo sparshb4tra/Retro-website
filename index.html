@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sparsh's Portfolio</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/   " href="https://icons.iconarchive.com/icons/hopstarter/3d-cartoon-vol3/128/Half-Life-Opposing-Force-icon.png">
+    </head>
+    
+<body>
+    <div class="main-window">
+        <div class="main-header" id="main-header">
+            <div class="close-box"></div>
+            <div class="main-title">My Retro Portfolio</div>
+        </div>
+        
+        <div class="menubar">
+            <div class="os-logo">
+                <img src="icons/main.png" alt="Main Logo" style="width: 16px; height: 16px;">
+            </div>
+            <div class="menu-item" onclick="showAboutWindow()">About</div>
+            <div class="menu-item">File</div>
+            <div class="menu-item">Edit</div>
+            <div class="menu-item">View</div>
+            <div class="menu-item">Special</div>
+        </div>
+        
+        <div class="desktop-area" id="desktop">
+            <!-- Icons -->
+            <div class="icon draggable" style="top: 20px; left: 20px;" onclick="selectIcon(this); openWindow('about')">
+                <div class="icon-img">
+                    <img src="icons/disk.png" alt="About Me" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">About Me</div>
+            </div>
+            
+            <div class="icon draggable" style="top: 20px; left: 110px;" onclick="selectIcon(this); openWindow('projects')">
+                <div class="icon-img">
+                    <img src="icons/spaceship.png" alt="Projects" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">Projects</div>
+            </div>
+            
+            <div class="icon draggable" style="top: 20px; left: 200px;" onclick="selectIcon(this); openWindow('resume')">
+                <div class="icon-img">
+                    <img src="icons/document.png" alt="Resume" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">Resume</div>
+            </div>
+            
+            <div class="icon draggable" style="top: 20px; left: 290px;" onclick="selectIcon(this); openWindow('contact')">
+                <div class="icon-img">
+                    <img src="icons/pager.png" alt="Contact" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">Contact</div>
+            </div>
+            
+            <div class="icon draggable" style="top: 130px; left: 20px;" onclick="selectIcon(this); openWindow('system-about')">
+                <div class="icon-img">
+                    <img src="icons/computer.png" alt="System" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">System</div>
+            </div>
+            
+            <div class="icon draggable" style="top: 130px; left: 110px;" onclick="selectIcon(this); openWindow('snake')">
+                <div class="icon-img">
+                    <img src="icons/snake.png" alt="Snake Game" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">Snake Game</div>
+            </div>
+            
+            <div class="icon draggable" style="bottom: 20px; right: 20px;" onclick="selectIcon(this)">
+                <div class="icon-img">
+                    <img src="icons/trash.png" alt="Trash" style="width: 40px; height: 40px;">
+                </div>
+                <div class="icon-label">Trash</div>
+            </div>
+            
+            <!-- Windows -->
+            <div class="app-window draggable" id="about-window" style="top: 80px; left: 80px;">
+                <div class="window-header">
+                    <div class="close-box" onclick="closeWindow('about')"></div>
+                    <div class="window-title">About Me</div>
+                </div>
+                <div class="window-content">
+                    <h3>About Me</h3>
+                    <p>Hello! I'm sparsh, a pre-final year Information Technology student at Bhagwan Parshuram Institute of Technology with a passion for data analytics and machine learning.</p>
+                    <p>I specialize in building real-time systems and predictive models, with hands-on experience in inventory management, student performance prediction, and plant disease detection.</p>
+                    <p>My background includes work in tech and data-driven problem solving, and I'm particularly interested in creating intuitive solutions that turn complex data into actionable insights across industries.</p>
+                    <p>When not working, I enjoy exploring emerging technologies, solving real-world problems, and learning new tools in the data science space.</p>
+                    <button onclick="closeWindow('about')">Close</button>
+                </div>
+                <div class="window-footer">
+                    About Me
+                </div>
+                <div class="scroll-bar">
+                    <div class="scroll-arrow">▲</div>
+                    <div class="scroll-track">
+                        <div class="scroll-thumb"></div>
+                    </div>
+                    <div class="scroll-arrow">▼</div>
+                </div>
+            </div>
+            
+            <div class="app-window draggable" id="projects-window" style="top: 100px; left: 120px;">
+                <div class="window-header">
+                    <div class="close-box" onclick="closeWindow('projects')"></div>
+                    <div class="window-title">Projects</div>
+                </div>
+                <div class="window-content">
+                    <h3>My Projects</h3>
+                
+                    <h4>Tennis Match Outcome Predictor</h4>
+                    <p>Predicts ATP match outcomes using player stats, surfaces, and performance history. Work in progress with ongoing model tuning.</p>
+                    <p>Technologies used: Python, PyTorch, Scikit-learn, Matplotlib, Numpy, Seaborn, Pandas</p>
+                
+                    <h4>Student Performance Prediction</h4>
+                    <p>Analyzes demographics, study habits, and activities to predict academic performance. Currently under model evaluation.</p>
+                    <p>Technologies used: Python, PyTorch, Scikit-learn, Pandas, Numpy</p>
+                
+                    <h4>INVY – Real-Time Inventory Management</h4>
+                    <p>Manages ingredient stock with categorized lists and role-based access for Admin and User. Built for efficient tracking.</p>
+                    <p>Technologies used: PHP, JavaScript, HTML, CSS, MySQL, XAMPP</p>
+                
+                    <button onclick="closeWindow('projects')">Close</button>
+                </div>
+                <div class="window-footer">
+                    Projects
+                </div>
+                <div class="scroll-bar">
+                    <div class="scroll-arrow">▲</div>
+                    <div class="scroll-track">
+                        <div class="scroll-thumb"></div>
+                    </div>
+                    <div class="scroll-arrow">▼</div>
+                </div>
+            </div>
+            
+            <div class="app-window draggable" id="resume-window" style="top: 120px; left: 160px;">
+                <div class="window-header">
+                    <div class="close-box" onclick="closeWindow('resume')"></div>
+                    <div class="window-title">Resume</div>
+                </div>
+                <div class="window-content">
+                    <h3>Resume</h3>
+                    
+                    <h4>Experience</h4>
+                    <p><strong>Hughes Systique Corporation</strong> – Software Development Intern<br>June 2024 – July 2024</p>
+                    <p>Built a real-time inventory system using Python, MySQL, Java, and Git. Contributed to UI design and troubleshooting, improving stock tracking across multiple locations.</p>
+                    
+                    <!-- <p><strong>[Previous Company]</strong> - [Position]<br>[Date range]</p>
+                    <p>[Description of responsibilities and achievements]</p> -->
+                    
+                    <h4>Education</h4>
+                    <p><strong>Bhagwan Parshuram Institute of Technology</strong> – B.Tech, Information Technology<br>Aug 2022 – Jul 2026 (Expected)</p>
+
+                    <h4>Skills</h4>
+                    <p><b>Languages</b>: Python, C++, JavaScript, SQL, HTML, CSS<br><br>
+                    <b>Frameworks & Libraries</b>: React, Bootstrap, Pandas, NumPy, PyTorch, Scikit-learn, Matplotlib<br><br>
+                    <b>Tools</b>: Jupyter, Excel, Power BI, MySQL, Git, XAMPP, Figma<br><br>
+                    <b>Soft Skills</b>: Leadership, Problem Solving, Communication, Teamwork</p>
+                    
+                    <button onclick="window.location.href='resume.pdf';">Download PDF</button>
+                    <button onclick="closeWindow('resume')">Close</button>
+                </div>
+                <div class="window-footer">
+                    Resume
+                </div>
+                <div class="scroll-bar">
+                    <div class="scroll-arrow">▲</div>
+                    <div class="scroll-track">
+                        <div class="scroll-thumb"></div>
+                    </div>
+                    <div class="scroll-arrow">▼</div>
+                </div>
+            </div>
+            
+            <div class="app-window draggable" id="contact-window" style="top: 140px; left: 200px;">
+                <div class="window-header">
+                    <div class="close-box" onclick="closeWindow('contact')"></div>
+                    <div class="window-title">Contact</div>
+                </div>
+                <div class="window-content">
+                    <h3>Contact Me</h3>
+                    <p><strong>Email:</strong> your.email@example.com</p>
+                    <p><strong>LinkedIn:</strong> linkedin.com/in/yourprofile</p>
+                    <p><strong>GitHub:</strong> github.com/yourusername</p>
+                    <p><strong>Twitter:</strong> @yourhandle</p>
+                    
+                    <p>Feel free to reach out for collaboration opportunities, job inquiries, or just to say hello!</p>
+                    
+                    <button onclick="closeWindow('contact')">Close</button>
+                </div>
+                <div class="window-footer">
+                    Contact
+                </div>
+                <div class="scroll-bar">
+                    <div class="scroll-arrow">▲</div>
+                    <div class="scroll-track">
+                        <div class="scroll-thumb"></div>
+                    </div>
+                    <div class="scroll-arrow">▼</div>
+                </div>
+            </div>
+            
+            <div class="app-window draggable" id="system-about-window" style="top: 60px; left: 150px;">
+                <div class="window-header">
+                    <div class="close-box" onclick="closeWindow('system-about')"></div>
+                    <div class="window-title">About This Mac</div>
+                </div>
+                <div class="window-content" style="text-align: center;">
+                    <h3>My Retro Portfolio</h3>
+                    <p>© 2025 sparsh</p>
+                    <p>Created with HTML, CSS, js and pure nostalgia</p>
+                    <p>Version 1.0</p>
+                    
+                    <button onclick="closeWindow('system-about')">OK</button>
+                </div>
+                <div class="window-footer">
+                    About
+                </div>
+            </div>
+            
+            <div class="app-window draggable" id="snake-window" style="top: 160px; left: 240px; width: 400px; height: 450px;">
+                <div class="window-header">
+                    <div class="close-box" onclick="closeWindow('snake')"></div>
+                    <div class="window-title">Snake Game</div>
+                </div>
+                <div class="window-content" style="padding: 10px; overflow: hidden; height: 400px;">
+                    <div style="text-align: center; margin-bottom: 10px;">
+                        <h3 style="margin: 0; font-size: 14px;">Classic Snake</h3>
+                    </div>
+                    
+                    <canvas id="board" style="display: block; margin: 0 auto; border: 1px solid black;"></canvas>
+                    
+                    <div style="padding: 10px; text-align: center; margin-top: 10px;">
+                        <p id="gameStatus" style="font-weight: bold;">Ready to play!</p>
+                        <p>Score: <span id="snakeScore">0</span></p>
+                        <div style="display: flex; justify-content: center; margin-top: 5px;">
+                            <button id="startButton" onclick="startSnakeGame()">Start Game</button>
+                            <button id="retryButton" onclick="retrySnakeGame()" style="display: none;">Try Again</button>
+                        </div>
+                        <p style="font-size: 11px; margin-top: 8px;">Use arrow keys to control the snake</p>
+                    </div>
+                </div>
+                <div class="window-footer">Snake Game</div>
+            </div>
+        
+        <div class="footer">
+            <div>6 items, 800 K bytes used</div>
+            <div>20 K bytes free</div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
